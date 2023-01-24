@@ -1,0 +1,43 @@
+<nav id="navbar">
+    <div class="logo">
+        <p>MG<span style="font-weight: bolder;">::</span></p>
+    </div>
+    
+    <input type="checkbox" id="check" value="">
+    <label id="toggle" for="check"></label>
+    <ul class="menu">
+        <li><a href="#" class="first">home</a></li>
+        <li><a href="#about_me">About</a></li>
+        <li><a href="#stacks">stacks</a></li>
+        <li><a href="#services">services</a></li>
+        <li><a href="#contact">contact</a></li>
+        
+    </ul>
+
+   
+</nav>
+
+
+<script>
+    let navbar=document.getElementById('navbar')
+    window.addEventListener('scroll',()=>{
+        let scrolled=window.scrollY
+
+
+        if(scrolled>=30){
+            navbar.style.backgroundColor='rgb(12,12,22)';
+        }
+        else{
+            navbar.style.backgroundColor='transparent'
+        }
+
+
+    })
+
+
+    const toggle=document.getElementById('toggle')
+    toggle.addEventListener('click',()=>{
+        toggle.classList.toggle('active')
+    })
+
+</script>

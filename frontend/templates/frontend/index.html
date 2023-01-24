@@ -1,0 +1,297 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{%block content%}
+<main>
+  
+   <header>
+          {%include 'navbar.html' %}
+
+            <section class="head-section">
+
+                  <div class="sect-one">
+                     
+                     <h2 >Miracle C.</h2><br>
+                     <h2><span>Godwin</span></h2>
+                     
+                  
+                     <!-- <img src="{%static 'media/head.png' %}" alt=""> -->
+                  </div>
+
+
+                  <div class="sect-two" id="sect-two">
+                     <p>Proferring solution through technology</p><br>
+                     <p>A Software Engineer,with so much enthusiasm on technology and  solution oriented. Building a solution for humanity</p>
+                  </div>
+
+
+            </section>
+
+   </header>
+
+
+   <!-- ABOUT ME -->
+      <section class="about_me" id="about_me">
+         <div class="about_section1">
+                     <p>What I Do?</p><br><br><br>
+
+                  <div>
+                     <p>I'm a <span id="about_opt"></span></p>
+                     <br><p class="about_desc">I am Godwin a Software Developer with over 3years+ experience working with various techologies, worked on various projects including Ecommerce,School mgt app,online music site e.t.c worked with various API's and server side Integration... </p>
+                  </div>
+         </div>
+
+         <div class="about_exp">
+            <h1>3+</h1>
+            <h3>Years <small>exp</small></h3>
+         </div>
+         
+
+      </section>
+
+
+
+
+      <!-- MY STACKS  -->
+      <section class="stacks" >
+         <div class="features" id="stacks">
+            <div class="feature first" id="feature"><h3>:: <br> FullStack <br>Developer</h3></div>
+            <div class="feature" id="feature"><h3>:: <br> Product <br>Designer</h3></div>
+            <div class="feature" id="feature"><h3>:: <br> MobileApp <br>Developer</h3></div>
+         </div>
+
+         <!-- <ul id="stacks">
+            
+
+         </ul> -->
+      </section>
+
+
+
+      <!-- MY SERVICES -->
+
+      <section class="services" id="services">
+         <div class="service note">
+            <h2>Projects, Creative works</h2>
+            <p>Some couple of project i have worked, including Source-code</p>
+            <br>
+            <a href="" style="text-decoration: none; color: rgb(181, 210, 255);"><h4 >See More &rarr;</h4></a>
+         </div>
+
+         <div class="service">
+            <h3>Product Design</h3>
+            <img src="{%static 'media/ui_design.jpg' %}" alt="">
+         </div>
+
+
+
+         <div class="service">
+            
+            <h3>Web Development</h3>
+               <img src="{%static 'media/web_design.jpg' %}" alt="">
+            
+         </div>
+
+
+         <div class="service">
+            <h3>Mobile App</h3>
+               <img src="{%static 'media/appdesign.jpg' %}" alt="">
+            
+         </div>
+
+
+
+      </section>
+
+      <!-- CONTACT ME -->
+
+      <section class="contact" id="contact">
+         <center>
+            <h2>Let's Talk</h2>
+         </center><br><br>
+
+         <form action="" method="POST">{%csrf_token%}
+            <input type="text" name="username" placeholder="Enter Your Name" required>
+            <input type="email" name="email"  placeholder="Enter Your Email" required><br><br>
+            <textarea name="message" id="" placeholder="Message"></textarea>
+            <button type="submit">Submit</button>
+         </form>
+      </section>
+      
+
+{%include 'footer.html' %}
+
+</main>
+
+<script>
+
+
+
+// LIGHTBOX SCRIPT
+   const web_dev=['HTML','CSS','Bootstrap','python','django','drf','flask','javascript','reactJS','Golang','postgreSQL','railway','Docker']
+   const ui_ux=['figma']
+   const app_dev=['DRF','React Native']
+
+   const feature_lightbox=document.createElement('ul')
+   feature_lightbox.id='stacks_list'
+
+   document.body.appendChild(feature_lightbox)
+
+   const features=document.querySelectorAll('.feature')
+
+   features.forEach((feature,index)=>{
+      feature.addEventListener('click',e=>{
+         feature_lightbox.classList.add('active')
+         let stack_item=document.createElement('div')
+         stack_item.id='stack_item'
+         while(feature_lightbox.firstChild){
+            feature_lightbox.remove(feature_lightbox.firstChild)
+         }
+         feature_lightbox.appendChild(stack_item)
+
+ 
+         if (index==0){
+            web_dev.forEach(val=>{
+               stack_item.innerHTML+=`<li>${val}</li>`
+            })
+         }
+         else if(index==1){
+            ui_ux.forEach(val=>{
+               stack_item.innerHTML+=`<li>${val}</li>`
+            })
+         }
+         else{
+            app_dev.forEach(val=>{
+               stack_item.innerHTML+=`<li>${val}</li>`
+            })
+
+         }
+        
+      })
+   })
+
+   feature_lightbox.addEventListener('click',e=>{
+      if(e.target!==e.currentTarget) return
+      else{
+         feature_lightbox.classList.remove('active')
+      }
+   })
+
+
+
+
+
+
+   // AUTO-TYPING SCRIPT
+   const about_opt=document.getElementById('about_opt')
+   
+
+   const professions=['Software Developer', 'Web Developer','Product Designer','MobileApp Developer'].toString()
+  
+      var typed= new Typed("#about_opt",{
+         strings:professions.split(','),
+         typeSpeed:75,
+         loop:true,
+         backDelay:900,
+         backSpeed:40,
+      })
+
+
+
+
+
+
+      // INTRSECTION OBSERVER
+
+      const sect_two=document.querySelectorAll('.sect-two')
+      // const desc=document.querySelector('.about_desc')
+      const skills=document.querySelectorAll('.feature')
+
+
+      const options = {
+            threshold: 0,
+            rootMargin: '0px 0px -200px  0px'
+        };
+        const appearOnScroll = new IntersectionObserver(function (entries, appearOnScrol)
+         {
+            targets=entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+                else {
+                    entry.target.classList.add('appear');
+                    appearOnScroll.unobserve(entry.target)
+                }
+
+            });
+
+        }, options)
+        
+
+        sect_two.forEach(val=>{
+           appearOnScroll.observe(val)
+        })
+
+        skills.forEach(val=>{
+           appearOnScroll.observe(val)
+        })
+
+      //   desc.forEach(val=>{
+      //      appearOnScroll.observe(val)
+      //   })
+
+
+
+
+
+
+
+
+      //   LETTERING JS SCRIPT
+      $('.about_desc').lettering()
+
+
+      // GSAP SCRIPT
+      gsap.from('.sect-one h2',{
+         y:-40,
+         opacity:0,
+         duration:1,
+         delay:6,
+         stagger:0.6,
+         // ease:"rough",
+      })
+
+      gsap.from('.about_desc span',{
+         y:50,
+         opacity:0,
+         delay:10,
+         stagger:{
+            amount:5
+         }
+      })
+
+      // main=document.getElementsByTagName('main')
+      // gsap.from(main,{
+      //    backgroundColor:'black',
+      //    duration:4,
+      //    // x: 20,
+      //    opacity: 50,
+      //    delay:5,
+      // })
+</script>
+   
+{%endblock%}
+<!-- for(val in web_dev){
+   stack_item.innerHTML+=`<li>${web_dev[val]}</li>`
+} -->
+
+<!-- 
+var count=1
+features=document.querySelectorAll('.feature')
+features.forEach(element => {
+   count=count+1;
+   const feature= element+`${count}`
+   feature.addEventListener('click',()=>{
+      console.log('clixked')
+   })
+}); -->
