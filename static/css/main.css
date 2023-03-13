@@ -41,7 +41,7 @@ main{
     top: 0;
     left: 0;
     overflow: hidden;
-    background: rgb(19, 19, 19) url(../media/flaming.gif) ;
+    background: black url(../media/loader2.gif) ;
     background-size: 20%;
     background-position: center;
     background-repeat: no-repeat;
@@ -671,7 +671,9 @@ footer p{
 
 @media screen and (max-width:950px){
 
-
+    .intro_bg{
+        background-size: 40%;
+    }
     .logo{
         margin-top: 2%;
     }
