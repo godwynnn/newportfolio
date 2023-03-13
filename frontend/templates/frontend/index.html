@@ -15,7 +15,7 @@
                      <h2><span>Godwin</span></h2>
                      
                   
-                     <!-- <img src="{%static 'media/head.png' %}" alt=""> -->
+                     <!-- <img src="{%static 'media/ceo_5.png' %}" alt=""> -->
                   </div>
 
 
@@ -128,9 +128,9 @@
 
 
 // LIGHTBOX SCRIPT
-   const web_dev=['HTML','CSS','Bootstrap','python','django','drf','flask','javascript','reactJS','Golang','postgreSQL','railway','Docker']
+   const web_dev=['HTML','CSS','Bootstrap','python','django','drf','flask','javascript','reactJS','postgreSQL','railway','Docker']
    const ui_ux=['figma']
-   const app_dev=['DRF','React Native']
+   const app_dev=['DRF','React Native','FASTApi']
 
    const feature_lightbox=document.createElement('ul')
    feature_lightbox.id='stacks_list'
@@ -172,9 +172,9 @@
 
    feature_lightbox.addEventListener('click',e=>{
       if(e.target!==e.currentTarget) return
-      else{
-         feature_lightbox.classList.remove('active')
-      }
+      
+      feature_lightbox.classList.remove('active')
+      
    })
 
 
