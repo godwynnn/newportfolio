@@ -41,13 +41,16 @@ main{
     top: 0;
     left: 0;
     overflow: hidden;
-    background-color: black;
+    background: black url(../media/loader2.gif) ;
+    background-size: 20%;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 100%;
     font-size: 50px;
     min-height: inherit;
     /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
     display: flex;
-    animation: Logo 2s linear infinite 0s;
+    /* animation: Logo 2s linear infinite 0s; */
     /* font-weight: bold; */
     justify-content: center;
     align-items: center;
@@ -72,9 +75,9 @@ header{
     min-height: 100vh;
     position:  relative;
     /* border: 1px solid red; */
-    /* background-image: url(../media/head.png); */
+    /* background-image: url(../media/ceo_6.png); */
     
-    /* background-position: center ; */
+    background-position: center ;
     background-repeat: no-repeat;
     background-size: contain;
 
@@ -203,9 +206,10 @@ nav{
     /* height: inherit; */
     /* background-position: top; */
     background-repeat: no-repeat;
+    /* background-size: contain; */
     background-size: auto;
     background-position: right;
-    /* background-image: url(../media/head.png); */
+    /* background-image: url(../media/ceo_1.png); */
    
     opacity: 95%;
     /* justify-content: center; */
@@ -534,6 +538,10 @@ footer p{
 
 @media screen and (max-width:1024px){
     /* MENU */
+    header{
+        background-image: none;
+
+    }
     #toggle{
         display: flex;
     }
@@ -663,7 +671,9 @@ footer p{
 
 @media screen and (max-width:950px){
 
-
+    .intro_bg{
+        background-size: 40%;
+    }
     .logo{
         margin-top: 2%;
     }
@@ -803,11 +813,8 @@ footer p{
     .about_me{
         height: 120vh;
     }
-    .about_section1 div p:first-child{
-        font-size: 25px;
-    }
-    .about_section1 div p{
-        font-size: 12px;
+    .about_section1 div p:not(:first-child){
+        font-size: 20px;
     }
     /* Services */
     .services{
@@ -818,6 +825,33 @@ footer p{
         height: 70vh;
     }
    
+}
+@media screen and (max-width:500px){
+    .about_section1 div p{
+        font-size: 14px;
+   }
+   .about_section1 div p:first-child{
+       font-size: 25px;
+   }
+   .about_exp{
+    font-size: 18px;
+   }
+   .about_me p{
+    font-size: 20px;
+   }
+   .contact form button{
+    width: 25%;
+    font-size: 15px;
+   }
+
+
+}
+@media screen and (max-width:450px){
+    .sect-one h2{
+        line-height: 60px;
+        bottom: -45%;
+        font-size: 50px;
+    }
 }
 @media screen and (max-width:400px){
     .sect-one h2{
@@ -833,5 +867,33 @@ footer p{
     }
     .about_section1 div p{
         font-size: 10px;
+    }
+}
+@media screen and (max-width:370px){
+    .sect-one h2{
+        font-size: 40px;
+    }
+    .sect-one h2 span{
+        font-size: 40px;
+    }
+    .sect-two{
+        padding-top:20%;
+    }
+    .sect-two p{
+        font-size: 15px;
+    }
+    .sect-two p:first-child{
+        font-size:18px;
+    }
+}
+@media screen and (max-width:312px){
+    .sect-one{
+        line-height: 10px;
+    }
+    .sect-one h2{
+        font-size: 30px;
+    }
+    .sect-one h2 span{
+        font-size: 30px;
     }
 }
