@@ -11,9 +11,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-
+import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+env = environ.Env()
+environ.Env.read_env()
 
 
 # Quick-start development settings - unsuitable for production
@@ -80,10 +83,21 @@ EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+DATABASES={
+    'default':{
+        'DATABASE_URL':env('DATABASE_URL'),
+        'PGDATABASE':env('PGDATABASE'),
+        'PGHOST':env('PGHOST'),
+        'PGPASSWORD':env('PGPASSWORD'),
+        'PGPORT':env('PGPORT'),
+        'PGUSER':env('PGUSER')
     }
 }
 
