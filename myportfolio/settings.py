@@ -93,11 +93,11 @@ EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 DATABASES={
     'default':{
         'DATABASE_URL':env('DATABASE_URL'),
-        'PGDATABASE':env('PGDATABASE'),
-        'PGHOST':env('PGHOST'),
-        'PGPASSWORD':env('PGPASSWORD'),
-        'PGPORT':env('PGPORT'),
-        'PGUSER':env('PGUSER')
+        'NAME':env('PGDATABASE'),
+        'HOST':env('PGHOST'),
+        'PASSWORD':env('PGPASSWORD'),
+        'PORT':env('PGPORT'),
+        'USER':env('PGUSER')
     }
 }
 
