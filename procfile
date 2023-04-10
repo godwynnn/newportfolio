@@ -1,1 +1,3 @@
 web: gunicorn myportfolio.wsgi
+
+web: npm run start
