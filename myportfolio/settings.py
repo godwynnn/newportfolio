@@ -92,7 +92,7 @@ EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 
 DATABASES={
     'default':{
-        'DATABASE_URL':env('DATABASE_URL'),
+        'URL':env('DATABASE_URL'),
         'NAME':env('PGDATABASE'),
         'HOST':env('PGHOST'),
         'PASSWORD':env('PGPASSWORD'),
