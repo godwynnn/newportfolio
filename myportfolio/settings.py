@@ -92,6 +92,7 @@ EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 
 DATABASES={
     'default':{
+        'ENGINE':'django.db.backends.postgresql',
         'URL':env('DATABASE_URL'),
         'NAME':env('PGDATABASE'),
         'HOST':env('PGHOST'),
