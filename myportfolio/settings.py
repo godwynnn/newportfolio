@@ -83,23 +83,23 @@ EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-DATABASES={
-    'default':{
-        'URL':env('DATABASE_URL'),
-        'NAME':env('PGDATABASE'),
-        'HOST':env('PGHOST'),
-        'PASSWORD':env('PGPASSWORD'),
-        'PORT':env('PGPORT'),
-        'USER':env('PGUSER')
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES={
+#     'default':{
+#         'URL':env('DATABASE_URL'),
+#         'NAME':env('PGDATABASE'),
+#         'HOST':env('PGHOST'),
+#         'PASSWORD':env('PGPASSWORD'),
+#         'PORT':env('PGPORT'),
+#         'USER':env('PGUSER')
+#     }
+# }
 
 
 # Password validation
