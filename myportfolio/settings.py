@@ -34,11 +34,13 @@ import os
 # Application definition
 
 INSTALLED_APPS = [
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'frontend'
 ]
@@ -159,3 +161,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # EMAIL_HOST_USER='miraclegodwin67@gmail.com'
 # EMAIL_HOST_PASSWORD=''
 # EMAIL_USE_TLS=True
+
+
+
+
+# CLOUDINARY CREDENTIALS
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': env('CLOUD_NAME'),
+    'API_KEY': env('API_KEY'),
+    'API_SECRET': env('API_SECRET')
+}
