@@ -36,13 +36,13 @@
                      <p>What I Do?</p><br><br><br>
 
                   <div>
-                     <p>I'm a <span id="about_opt"></span></p>
-                     <br><p class="about_desc">I am Godwin a Software Developer with over 3years+ experience working with various techologies, worked on various projects including Ecommerce,School mgt app,online music site e.t.c worked with various API's and server side Integration... </p>
+                     <p>A <span id="about_opt"></span></p>
+                     <br><p class="about_desc">I am Godwin a Software Developer with over {{diff}}years+ experience working with various techologies, worked on various projects including Ecommerce,School mgt app,online music site e.t.c worked with various API's and server side Integration... </p>
                   </div>
          </div>
 
          <div class="about_exp">
-            <h1>3+</h1>
+            <h1>{{diff}}+</h1>
             <h3>Years <small>exp</small></h3>
          </div>
          
@@ -75,7 +75,7 @@
             <h2>Projects, Creative works</h2>
             <p>Some couple of project i have worked, including Source-code</p>
             <br>
-            <a href="" style="text-decoration: none; color: rgb(181, 210, 255);"><h4 >See More &rarr;</h4></a>
+            <a href="https://github.com/godwynnn?tab=repositories" target="_blank" style="text-decoration: none; color: rgb(181, 210, 255);"><h4 >See More &rarr;</h4></a>
          </div>
 
          <div class="service">
@@ -114,7 +114,7 @@
             <input type="text" name="username" placeholder="Enter Your Name" required>
             <input type="email" name="email"  placeholder="Enter Your Email" required><br><br>
             <textarea name="message" id="" placeholder="Message"></textarea>
-            <button type="submit">Submit</button>
+            <button type="submit" id="submit_mail">Submit</button>
          </form>
       </section>
       
@@ -186,7 +186,7 @@
    const about_opt=document.getElementById('about_opt')
    
 
-   const professions=['Software Developer', 'Web Developer','Product Designer','MobileApp Developer'].toString()
+   const professions=['Software Engineer','Tech Enthusiast','MobileApp Developer'].toString()
   
       var typed= new Typed("#about_opt",{
          strings:professions.split(','),
@@ -256,13 +256,13 @@
          y:-40,
          opacity:0,
          duration:1,
-         delay:6,
+         delay:4,
          stagger:0.6,
          // ease:"rough",
       })
 
       gsap.from('.about_desc span',{
-         y:50,
+         // y:-20,
          opacity:0,
          delay:10,
          stagger:{
@@ -278,6 +278,65 @@
       //    opacity: 50,
       //    delay:5,
       // })
+
+      function enter(elem){
+         gsap.from(elem,{
+            x:1000,
+            opacity:0,
+            delay:.9,
+            duration:1
+         })
+      }
+
+
+
+      const t1=gsap.utils.toArray(".service").forEach(function(elem){
+         // ScrollTrigger.create({
+         //    trigger:elem,
+         //    markers: true,
+         //    start:"top center",
+         //    end:"bottom 70%",
+         //    onEnter:enter(elem)
+
+         // }),
+         gsap.fromTo(elem,{y:200,opacity:0},{
+            y:0,
+            opacity:1,
+            delay:.1,
+            duration:1,
+            scrollTrigger:{
+               trigger:elem,
+               start:"top 60%",
+               end:"bottom 70%",
+               
+               // markers: true,
+
+            }
+         })
+         // console.log(elem)
+
+      })
+      
+
+      // MAGNETIC MAIL BUTTON
+      const email_btn=document.querySelector('#submit_mail')
+
+      email_btn.addEventListener('mousemove',(e)=>{
+         console.log(`offset ${e.target}`)
+         // // console.log(`width ${e.clientWidth}`)
+         console.log(`btnwidth ${email_btn.style}`)
+         let x=e.offsetX
+         let y=e.offsetY
+         let btnwidth=email_btn.clientWidth
+         let btnheight=email_btn.clientHeight
+
+         email_btn.style.transform=`translateX(${x-btnwidth/2}px) translateY(${y-btnheight/2}px)`
+
+
+      })
+      email_btn.addEventListener('mouseout',e=>{
+         email_btn.style.transform=''
+      })
 </script>
    
 {%endblock%}

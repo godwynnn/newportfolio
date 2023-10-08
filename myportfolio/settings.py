@@ -95,24 +95,24 @@ EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-DATABASES={
-    'default':{
-        'ENGINE':'django.db.backends.postgresql',
-        'URL':env('DATABASE_URL'),
-        'NAME':env('PGDATABASE'),
-        'HOST':env('PGHOST'),
-        'PASSWORD':env('PGPASSWORD'),
-        'PORT':env('PGPORT'),
-        'USER':env('PGUSER')
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES={
+#     'default':{
+#         'ENGINE':'django.db.backends.postgresql',
+#         'URL':env('DATABASE_URL'),
+#         'NAME':env('PGDATABASE'),
+#         'HOST':env('PGHOST'),
+#         'PASSWORD':env('PGPASSWORD'),
+#         'PORT':env('PGPORT'),
+#         'USER':env('PGUSER')
+#     }
+# }
 
 
 # Password validation
@@ -166,11 +166,11 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'static/media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# EMAIL_HOST='smtp.gmail.com'
-# EMAIL_PORT='587'
-# EMAIL_HOST_USER='miraclegodwin67@gmail.com'
-# EMAIL_HOST_PASSWORD=''
-# EMAIL_USE_TLS=True
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT='587'
+EMAIL_HOST_USER='miraclegodwin67@gmail.com'.strip()
+EMAIL_HOST_PASSWORD=''
+EMAIL_USE_TLS=True
 
 
 
